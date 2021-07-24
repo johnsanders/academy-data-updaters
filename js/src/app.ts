@@ -13,9 +13,7 @@ export const lambdaHandler = async (): Promise<void> => {
 		Bucket: 'cnn-academy-resources',
 		Key: 'externalData.json',
 	};
-	s3.putObject(s3Params, (err, data) => {
-		if (err) throw err;
-	});
+	await s3.putObject(s3Params).promise();
 };
 
 lambdaHandler();

@@ -11,7 +11,8 @@ const sortByDate = (a: string, b: string) => {
 
 const getNewsourceBlog = async (): Promise<any[]> => {
 	const res = await fetch('https://www.cnnnewsource.com/wp-json/wp/v2/posts?_embed=1&per_page=20');
-	const json = await res.json();
+	const text = await res.text();
+	const json = JSON.parse(text);
 	const filtered = json.filter((article: any) => {
 		return !excludeCategories.some((excludeCategory) =>
 			article.categories.includes(excludeCategory),
