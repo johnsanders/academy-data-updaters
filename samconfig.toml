@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "cnn-academy-data-updaters"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-oh84s0kmz6dy"
+s3_prefix = "cnn-academy-data-updaters"
+region = "eu-central-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

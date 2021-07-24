@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: cnn-academy-data-updaters-lambda
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  DataUpdatersFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: js
+      Handler: build/app.lambdaHandler
+      Runtime: nodejs14.x
+      Description: Update external data for CNN Academy
+      Events:
+        UpdateDataEvent:
+            Type: Schedule
+            Properties:
+              Schedule: rate(6 hours)
+      Policies:
+        - AmazonSESFullAccess
+        - AmazonS3FullAccess
+
+Outputs:
+  DataUpdatersFunction:
+    Description: "CNN Academy Data Updaters Lambda Function ARN"
+    Value: !GetAtt DataUpdatersFunction.Arn
+  DataUpdatersIamRole:
+    Description: "Implicit IAM Role created for CNN Academy Data Updaters function"
+    Value: !GetAtt DataUpdatersFunctionRole.Arn
