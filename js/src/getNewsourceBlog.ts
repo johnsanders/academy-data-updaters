@@ -19,10 +19,9 @@ const getNewsourceBlog = async (): Promise<any[]> => {
 		);
 	});
 	const sorted = filtered.sort(sortByDate);
-	const sliced = sorted.slice(0, 10);
-	const articles = sliced.map((article: any) => ({
+	const articles = sorted.map((article: any) => ({
 		date: article.date_gmt,
-		imageUrl: article._links['wp:featuredmedia'][0].href,
+		imageUrl: article._embedded['wp:featuredmedia'][0].source_url,
 		link: article.link,
 		title: article.title.rendered,
 	}));

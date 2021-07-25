@@ -17,7 +17,7 @@ Resources:
         UpdateDataEvent:
             Type: Schedule
             Properties:
-              Schedule: rate(6 hours)
+              Schedule: rate(12 hours)
       Policies:
         - AmazonSESFullAccess
         - AmazonS3FullAccess
