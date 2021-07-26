@@ -19,7 +19,6 @@ Resources:
             Properties:
               Schedule: rate(12 hours)
       Policies:
-        - AmazonSESFullAccess
         - AmazonS3FullAccess
 
 Outputs:
