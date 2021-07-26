@@ -15,5 +15,3 @@ export const lambdaHandler = async (): Promise<void> => {
 	};
 	await s3.putObject(s3Params).promise();
 };
-
-lambdaHandler();
