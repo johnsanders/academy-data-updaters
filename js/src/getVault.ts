@@ -1,8 +1,6 @@
-import { EventBridgeEvent, Handler } from 'aws-lambda';
 import { VaultItem } from './types';
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
-import fs from 'fs';
 
 const getVault = async (): Promise<VaultItem[]> => {
 	const res = await fetch('https://edition.cnn.com/specials/business/vault-by-cnn');

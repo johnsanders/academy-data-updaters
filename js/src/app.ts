@@ -1,8 +1,9 @@
+import { Handler } from 'aws-lambda';
 import { S3 } from 'aws-sdk';
 import getNewsourceBlog from './getNewsourceBlog';
 import getVault from './getVault';
 
-export const lambdaHandler = async (): Promise<void> => {
+export const lambdaHandler: Handler = async (): Promise<void> => {
 	const vault = await getVault();
 	const newsourceBlog = await getNewsourceBlog();
 	const dataForS3 = { newsourceBlog, updated: new Date().toISOString(), vault };
